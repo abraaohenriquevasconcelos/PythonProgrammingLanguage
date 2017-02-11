@@ -19,18 +19,24 @@ Pessoa.set_nome(dara, 'Dara dos Santos')
 print dara.nome
 
 '''
-Entretanto, embora essa notação possa ser muito útil, ficar digirando o nome da classe pode ser bem entendiante. Certamente é redundante, pois todo objeto sabe a qual classe pertence. Desse modo, tiveram a ideia de, ao invés de preceder o nome da função com o nome da classe, precedê-lo com o objeto que é o primeiro parâmetro. Obviamente, não faz sentido usar o nome do objeto antes do nome da função e depois como parâmetro, como dara.set_nome(dara, 'Dara dos Santos'). Se o nome do objeto já está lpa antes do nome da função, ele deve ser retirado da lista de parâmetros.
+Entretanto, embora essa notação possa ser muito útil, ficar digirando o nome da classe pode ser bem entendiante. Certamente é 
+redundante, pois todo objeto sabe a qual classe pertence. Desse modo, tiveram a ideia de, ao invés de preceder o nome da função com o 
+nome da classe, precedê-lo com o objeto que é o primeiro parâmetro. Obviamente, não faz sentido usar o nome do objeto antes do nome 
+da função e depois como parâmetro, como dara.set_nome(dara, 'Dara dos Santos'). Se o nome do objeto já está lpa antes do nome da 
+função, ele deve ser retirado da lista de  parâmetros.
 
-Essas "funções dentro de classes" são chamadas de métodos. Para chamar métodos, tanto faz chamá-los em Classe.metodo(objeto, parametro) quanto chamá-los objeto.metodo(parametro)
+Essas "funções dentro de classes" são chamadas de métodos. Para chamar métodos, tanto faz chamá-los em Classe.metodo(objeto, parametro) 
+quanto chamá-los objeto.metodo(parametro)
 
 
-As formas são equivalentes, com apenas uma ressalva: "objeto" deve ser um objeto da classe "Classe". Por sinal, mesmo a primeira notação Classe.metodo(objeto, parametro) resultaria em erro se "objeto" não fosse um objeto da classe "Classe".
+As formas são equivalentes, com apenas uma ressalva: "objeto" deve ser um objeto da classe "Classe". Por sinal, mesmo a primeira 
+notação Classe.metodo(objeto, parametro) resultaria em erro se "objeto" não fosse um objeto da classe "Classe".
 '''
 
 class Pessoa(object):
     def set_nome(objetoPessoa, nome):
-    if len(nome) >= 2:
-        objetoPessoa.nome = nome
+        if len(nome) >= 2:
+            objetoPessoa.nome = nome
 
 dara = Pessoa()
 
@@ -43,9 +49,12 @@ print dara.nome
 '''
 O nome "self"
 
-No método Pessoa.set_nome acima, o nome do primeiro parâmetro do método era person. Entretanto, é tradicional chamar esse primeiro parâmetro de self. Por quê?
+No método Pessoa.set_nome acima, o nome do primeiro parâmetro do método era person. Entretanto, é tradicional chamar esse primeiro 
+parâmetro de self. Por quê?
 
-Bem, não há nenhuma obrigatoriedade de se fazer assim, tanto o é que em nosso método usamos outro nome para o parâmetro. Costuma-se chamar o primeiro parâmetro de self porque a maioria dos programadores Python já reconhece como o nome do objeto a ser invocado no método;
+Bem, não há nenhuma obrigatoriedade de se fazer assim, tanto o é que em nosso método usamos outro nome para o parâmetro. 
+Costuma-se chamar o primeiro parâmetro de self porque a maioria dos programadores Python já reconhece como o nome do objeto a ser 
+invocado no método;
 '''
 
 class Pessoa(object):
