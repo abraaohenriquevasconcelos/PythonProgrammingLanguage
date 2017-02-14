@@ -1,0 +1,8 @@
+How do you append directories to your Python path?
+
+Your path (the list of directories Python goes through(usar bastante alguma coisa) to search for modules and files) is stored in the "path"
+attribute of the sys module. Since (como) path is a list, you can use the append method to add new directories to the path.
+
+For example, to add the directory /home/me/mypy to the path, just do:
+import sys
+sys.path.append("/home/me/mypy")

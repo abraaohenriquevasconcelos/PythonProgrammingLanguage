@@ -1,0 +1,108 @@
+a = "pera uva maça"
+b = a.slipt(" ")
+['pera', 'uva', 'maça']
+
+
+>>> a.split(" ")
+['pera', 'uva', 'maça']
+>>> a.split(" ")[-1]
+'maça'
+
+A função basename() separa a URL em uma lista e retorna o último elemento
+>>> os.path.basename("c:")
+'c:'
+>>> os.path.basename("c:/documentos")
+'documentos'
+>>> os.path.basename("c:/documentos/favoritos")
+'favoritos'
+
+******************************************************************************************************************
+******************************************************************************************************************
+******************************************************************************************************************
+
+os.path.dirname() -> a função dirname() separa a URL e retorna o "range" que vai do primeiro item até o penúltimo [:-1]
+>>> a = "casa"
+>>> a[:-1]
+'cas'
+
+>>> a = "c:/usuarios/henrique/desktop"
+>>> b = a.split("/")[:-1]
+
+>>> c = os.path.dirname(a)
+>>> c
+'c:/usuarios/henrique'
+>>>
+
+>>> os.path.dirname("c:")
+''
+>>> os.path.dirname("c:/")
+'c:'
+
+******************************************************************************************************************
+******************************************************************************************************************
+******************************************************************************************************************
+
+os.path.abspath() -> É um "join()" entre o local de execução do script e a URL passada como parâmetro
+
+>>> a = os.getcwd()
+>>> a
+'/home/abraao/Desktop/PythonProgrammingLanguage'
+>>> b = "project/index"
+>>> c = a + b
+>>> c
+'/home/abraao/Desktop/PythonProgrammingLanguageproject/index'
+
+
+"c:/".split("/") 	 	 --> ["c:", ""] 		--> "path"
+"c:/users".split("/")  		 --> ["c:", "users"]		--> "c:/users"
+"c:/users/".split("/")		 --> ["c:", "users", ""]    	--> "c:/users"
+
+Exemplos.:
+>>> a = os.path.abspath("") -> vai retornar o local de onde esta sendo executado o script
+>>> a
+'/home/abraao/Desktop/PythonProgrammingLanguage'
+>>> b = os.path.abspath("abraao")
+>>> b
+'/home/abraao/Desktop/PythonProgrammingLanguage/abraao'
+>>> c = os.path.abspath("abraao/henrique")
+>>> c
+'/home/abraao/Desktop/PythonProgrammingLanguage/abraao/henrique'
+>>>
+
+******************************************************************************************************************
+******************************************************************************************************************
+******************************************************************************************************************
+
+Sabemos que abspath é um "join" do caminho absoluto com o caminho passado como parâmetro. Sabemos também que dirname retornará
+somente a pasta (sem o arquivo). 
+>>> os.path.abspath("")
+'/home/abraao/Desktop'
+>>> os.path.dirname(os.path.abspath(""))
+'/home/abraao'
+>>> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://www.devfuria.com.br/python/os.path/
+
+
+

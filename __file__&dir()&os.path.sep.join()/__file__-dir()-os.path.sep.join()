@@ -1,0 +1,55 @@
+Às vezes, quando importamos um módulo em Python, surge a curiosidade para ler o código-fon
+te desse módulo. Existe uma forma bem simples de descobrir a localização de um módulo
+no disco. Após importar um módulo, basta verificar o atributo __file__ do módulo
+
+ATRIBUTO FILE
+
+>>> import os
+>>> print(os.__file__)
+/usr/lib/python3.4/os.py
+
+
+abraao@Z800 ~/PycharmProjects/ProjetoRodrigo2 $ ls
+create_venv.sh  handlers  main.py  module  requirements.txt  venv
+abraao@Z800 ~/PycharmProjects/ProjetoRodrigo2 $ 
+>>> import module
+>>> module.__file__
+'/home/abraao/PycharmProjects/ProjetoRodrigo2/module/__init__.py'
+>>>
+
+********************************************************************************
+********************************************************************************
+********************************************************************************
+
+Função dir()
+abraao@Z800 ~/PycharmProjects/ProjetoRodrigo2 $ ls
+create_venv.sh  handlers  main.py  module  requirements.txt  venv
+abraao@Z800 ~/PycharmProjects/ProjetoRodrigo2 $ python3
+>>> import module (**veja o comando "ls" lá em cima**)
+>>> dir(module)
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', 'main', 'module', 'os', 'os_path', 'process_text', 'put_modules_on_path', 'sys_path']
+
+
+********************************************************************************
+********************************************************************************
+********************************************************************************
+
+abraao@Z800 ~/PycharmProjects/ProjetoRodrigo2 $ ls
+create_venv.sh  handlers  main.py  module  requirements.txt  venv
+abraao@Z800 ~/PycharmProjects/ProjetoRodrigo2 $ python3
+>>>from module import module (**dentro da pasta/módulo "module" tem um arquivo chamado module.py, estou importando ele **)
+>>> module.__file__
+'/home/abraao/PycharmProjects/ProjetoRodrigo2/module/module.py'
+>>> os.path.abspath(module.__file__) 
+'/home/abraao/PycharmProjects/ProjetoRodrigo2/module/module.py'
+>>> os.path.sep.join(os.path.abspath(module.__file__))
+'//h/o/m/e///a/b/r/a/a/o///P/y/c/h/a/r/m/P/r/o/j/e/c/t/s///P/r/o/j/e/t/o/R/o/d/r/i/g/o/2///m/o/d/u/l/e///m/o/d/u/l/e/./p/y'
+>>> os.path.sep.join(module.__file__).split('/')
+['', '', 'h', 'o', 'm', 'e', '', '', 'a', 'b', 'r', 'a', 'a', 'o', '', '', 'P', 'y', 'c', 'h', 'a', 'r', 'm', 'P', 'r', 'o', 'j', 'e', 'c', 't', 's', '', '', 'P', 'r', 'o', 'j', 'e', 't', 'o', 'R', 'o', 'd', 'r', 'i', 'g', 'o', '2', '', '', 'm', 'o', 'd', 'u', 'l', 'e', '', '', 'm', 'o', 'd', 'u', 'l', 'e', '.', 'p', 'y']
+>>> os.path.sep.join(module.__file__).split(os.path.sep)
+['', '', 'h', 'o', 'm', 'e', '', '', 'a', 'b', 'r', 'a', 'a', 'o', '', '', 'P', 'y', 'c', 'h', 'a', 'r', 'm', 'P', 'r', 'o', 'j', 'e', 'c', 't', 's', '', '', 'P', 'r', 'o', 'j', 'e', 't', 'o', 'R', 'o', 'd', 'r', 'i', 'g', 'o', '2', '', '', 'm', 'o', 'd', 'u', 'l', 'e', '', '', 'm', 'o', 'd', 'u', 'l', 'e', '.', 'p', 'y']
+>>> os.path.sep.join(module.__file__.split(os.path.sep))
+'/home/abraao/PycharmProjects/ProjetoRodrigo2/module/module.py'
+>>> os.path.sep.join(module.__file__.split(os.path.sep)[:-2])
+'/home/abraao/PycharmProjects/ProjetoRodrigo2'
+
