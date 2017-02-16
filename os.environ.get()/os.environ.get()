@@ -1,0 +1,31 @@
+The OS module in Python provides a way of using operating system dependent
+functionality
+
+os.environ() -> get the users environment
+
+If I print os.environ, the output looks like a dictionary. Some posts I read online 
+say that it is a memory based dictionary. So what is the exact type of os.environ
+
+
+An application can be cnfigured usually in three ways. Through
+- command-line arguments 
+- configuration files (I prefer YAML or Python standard library ConfigParser for 
+- environment variables
+The last option is the easiest fro quick and dirty hacks
+You can read out for this environment variable easily using os.environ dictionary
+
+Is there any difference at all between these two? When should I use one over 
+the other?
+
+>>> os.getenv('TERM')
+'xterm'
+>>> os.environ.get('TERM')
+'xterm'
+>>> os.getenv('FOOBAR', "not found") == "not found"
+True
+>>> os.environ.get('FOOBAR', "not found") == "not found"
+True
+
+os.environ raises an exception if the environmental variable does not exist. 
+os.getenv does not raise an exception, but return none
+
